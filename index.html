@@ -444,36 +444,41 @@
     if(e.target.id==='a_hp1_input') recalc();
   });
 
-document.getElementById('jobForm').addEventListener('submit', async function(e) {
-  e.preventDefault(); // stop page reload
+// ========= FORM SUBMISSION =========
+  document.getElementById('jobForm').addEventListener('submit', async function(e){
+    e.preventDefault(); // prevent page reload
 
-  const data = {
-    artist: document.getElementById('artist').value,
-    pm: document.getElementById('pm').value,
-    fy: document.getElementById('fy').value,
-    proj: document.getElementById('proj').value,
-    budget: document.getElementById('budget').value,
-    hp1: document.getElementById('a_hp1_input').value,
-    dp1: document.getElementById('a_dp1').textContent,
-    dp2: document.getElementById('a_dp2').textContent,
-    dp3: document.getElementById('a_dp3').textContent,
-    dp4: document.getElementById('a_dp4').textContent,
-    cp1: document.getElementById('a_cp1').textContent,
-    cp2: document.getElementById('a_cp2').textContent,
-    cp3: document.getElementById('a_cp3').textContent,
-    cp4: document.getElementById('a_cp4').textContent
-  };
+    const data = {
+      artist: $('artist').value,
+      pm: $('pm').value,
+      fy: $('fy').value,
+      proj: $('proj').value,
+      budget: $('budget').value,
+      hp1: $('a_hp1_input')?.value,
+      dp1: $('a_dp1').textContent,
+      dp2: $('a_dp2').textContent,
+      dp3: $('a_dp3').textContent,
+      dp4: $('a_dp4').textContent,
+      cp1: $('a_cp1').textContent,
+      cp2: $('a_cp2').textContent,
+      cp3: $('a_cp3').textContent,
+      cp4: $('a_cp4').textContent
+    };
 
-  const url = "https://script.google.com/a/macros/uacmem.org/s/AKfycbwJOLeoL8pUwZ5LgMwYVP0G7nup-Qwj7UYP4qp6WLBTDaj7ipdG4z3Q-uQMXF_bO6ACgg/exec"; // from Google Apps Script deployment
+    const url = "YOUR_WEB_APP_URL"; // replace with Google Apps Script Web App URL
 
-  const response = await fetch(url, {
-    method: "POST",
-    body: JSON.stringify(data)
+    try {
+      const response = await fetch(url, {
+        method: "POST",
+        body: JSON.stringify(data)
+      });
+
+      const result = await response.json();
+      alert(result.status === "success" ? "Saved to Google Sheet!" : "Error saving.");
+    } catch (err) {
+      alert("Error: " + err.message);
+    }
   });
-
-  const result = await response.json();
-  alert(result.status === "success" ? "Saved to Google Sheet!" : "Error saving.");
-});
 </script>
 </body>
 </html>
