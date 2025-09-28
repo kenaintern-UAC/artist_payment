@@ -465,12 +465,12 @@
       cp4: $('a_cp4').textContent
     };
 
-    const url = "https://script.google.com/macros/s/AKfycbx1lKPMXSLGNQAHd1ahblCQvq0MefnxpzkGYin0eoBhHpXgXYM0ZPGxp5OY5Pm6eKNflQ/exec"; // replace with Google Apps Script Web App URL
+    const url = "https://script.google.com/macros/s/AKfycbziruR4cdsTZxMcyUjOgXPVcLNzv3f4TnS8_uuMVgp4SL-9xq2uyLNRAu6VQkdGy3PErg/exec"; // replace with Google Apps Script Web App URL
 
     try {
       const response = await fetch(url, {
         method: "POST",
-        mode: "no-cors",   // add this line
+        mode: "no-cors",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data)
       });
