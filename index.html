@@ -446,7 +446,7 @@
 
 // ========= FORM SUBMISSION =========
   document.getElementById('jobForm').addEventListener('submit', async function(e){
-    e.preventDefault(); // prevent page reload
+    e.preventDefault();
 
     const data = {
       artist: $('artist').value,
@@ -465,12 +465,11 @@
       cp4: $('a_cp4').textContent
     };
 
-    const url = "https://script.google.com/macros/s/AKfycbziruR4cdsTZxMcyUjOgXPVcLNzv3f4TnS8_uuMVgp4SL-9xq2uyLNRAu6VQkdGy3PErg/exec"; // replace with Google Apps Script Web App URL
+    const url = "https://script.google.com/macros/s/AKfycbx8ti46ETEfZ2nvWhfxOpNG27HvzySlBbGhi2Bvd2aIILjlHFa768YI5E1g88QPAkg96w/exec"; // <-- paste Google Apps Script web app URL
 
     try {
       const response = await fetch(url, {
         method: "POST",
-        mode: "no-cors",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data)
       });
