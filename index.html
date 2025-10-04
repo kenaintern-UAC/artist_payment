@@ -86,16 +86,6 @@
   /* Tiny helpers to echo the scanned look */
   .underscore{border-bottom:1px solid #000; display:inline-block; min-width:140px; height:18px; vertical-align:baseline}
   .section-note{border-top:1px dashed #aaa; margin-top:8px; padding-top:6px}
-  
-  /* Hours input underline style */
-  .hours-input {
-    width: 60px;
-    border: none;
-    border-bottom: 1.5px solid #000;
-    outline: none;
-    text-align: center;
-    font: inherit;
-    background: transparent;
 </style>
 </head>
 <body>
@@ -183,9 +173,17 @@
         <strong>Note:</strong> DP payments are percentages of the Design Budget. HP1 is optional honorarium.
       </div>
     </div>
-    
+    <div class="col">
+      <div class="check check-baseline">
+  <span class="short-blank">&nbsp;</span>
+  <label>Hours supporting applicants</label>
+</div>
       <div class="check"><input type="checkbox"><label>In-progress website page created</label></div>
       <div class="check"><input type="checkbox"><label>Community engagement</label></div>
+  <div class="check check-baseline">
+  <span class="short-blank">&nbsp;</span>
+  <label>Hours supporting finalists</label>
+</div>
       <div class="check"><input type="checkbox"><label>Finalists’ honorarium invoices received</label></div>
       <div class="muted small section-note">Trigger: After selection committee approval</div>
     </div>
@@ -364,19 +362,6 @@
     </div>
   </div>
 
-  <!-- Hours fields at the bottom -->
-  <div style="margin-top:20px;">
-    <label>
-      Hours supporting applicants:
-      <input type="number" id="hoursApplicants" class="hours-input" placeholder="0">
-    </label>
-    <br><br>
-    <label>
-      Hours supporting finalists:
-      <input type="number" id="hoursFinalists" class="hours-input" placeholder="0">
-    </label>
-  </div>
-  
   <!-- Totals -->
   <div style="padding:10px 2px 2px">
     <div class="sumrow">
@@ -495,6 +480,9 @@
       alert("Error: " + err.message);
     }
   });
+</script>
+</body>
+</html>
 </script>
 </body>
 </html>
